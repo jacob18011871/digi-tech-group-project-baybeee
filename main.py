@@ -52,8 +52,9 @@
 
 #if __name__ == "__main__":
     #main()
-
+#--------Code ------------
+player = Player(player_name, room1)
 # ----------- Main Code --------------
 
 player_name = input("Hey gambler! Do you know where you are right now? Unfortuntely we can't carry on until we know your name. Can you tell us?")
-print(player_name, "? Glad you remembered. Now I should probably catch youup on recent events.. Everything's gone to absolute sh*t.")
+print(player_name, "? Glad you remembered. Now I should probably catch you up on recent events.. Everything's gone to absolute sh*t.")
