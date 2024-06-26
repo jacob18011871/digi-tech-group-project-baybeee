@@ -6,10 +6,10 @@ def intro():
     print(player_name, "? Glad you remembered. Now I should probably catch you up on recent events.. Everything's gone to absolute sh*t.")
 
 #function for health
-def hp():
+def health():
     health = 5
     if health < 0:
-
+        pass
 # function for doing something (an action)
 def action():
     pass
