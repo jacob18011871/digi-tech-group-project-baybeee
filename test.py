@@ -2,12 +2,13 @@ import time
 weapon = "Axe"
 blood = 55
 HP = 100
-Stamina = 100
-Alchemist_HP = 1250
-if HP == 0:
-        print("You died. Game over.")
+if HP < 0:
+        print("You perished! game over.")
         exit()
-
+Stamina = 100
+Alchemist_HP = 250
+if Alchemist_HP < 0:
+        print("The Alchemist falls to the ground...!")
 
 action = "You walk into a small room. A window lets you see the full moon along with some clouds. There is a primitive elevator which leads to the top of the tower, although it looks shoddy... unsafe and almost DEFINITELY lethal. You could also climb up the tower, but that would be tiring... the risk is great. What do you do?"
 a = " Take the risk, and use the Elevator "
@@ -22,6 +23,7 @@ elif answer == b or answer == "b":
 else:
         print("You grabbed your karambit and reduced your lifespan by ∞.")
         print("game over.")
+        exit()
 
 print("You stumble out of the tower onto the long bridge, which leads directly into the main Observatory. You look off into the beautiful full moon, constellations filling the sky. It gives you a feeling of reassurance. (+100 Health, +100 Stamina, +5 turns). You walk up to the Observatory, and open the doors.")
 HP += 50
@@ -118,23 +120,31 @@ time.sleep(2)
 print("'I'll send you back!'")
 print("You have", HP, "HP! Prepare!")
 action = "The Alchemist pulls out a massive syringe, intending to pierce you! He charges up..!"
-a = "Attack!"
-b = "Dodge!"
-c = "Parry!"
-d = "Block!"
+a = " Attack! "
+b = " Dodge! "
+c = " Parry! "
+d = " Block! "
 answer = input("{}\nA.{} B. {} C. {} D. {}".format(action, a, b, c, d)).lower()
 if answer == a or answer == "a":
-        print("You grab your", weapon, "and attempt to swing at him. You land one shot before he charges at you! You are pierced and heavily damaged! (-65 HP), (-20 Alchemist's HP)")
+        print("You grab your", weapon, "and attempt to swing at him. You land one shot before he charges at you! You are pierced and heavily damaged! (-65 HP), (-30 Alchemist's HP)")
         HP -= 65 
-        Alchemist_HP -= 20
+        Alchemist_HP -= 30
 elif answer == b or answer == "b":
         print("You just barely manage to dodge The Alchemist as he charges past, but he immediately charges again! You are hit full force! (-80 HP)")
         HP -= 80
 elif answer == c or answer == "c":
         print("You raise your axe... and you parry his attack! He falls back. Your axe has been damaged, however!")
 elif answer == d or answer == "d":
-        print("You raise your axe... and you block his attack! However, he charges again, breaking your axe and damaging you! (-40 HP)")
+        print("You raise your", weapon, "... and you block his attack! However, he charges again, breaking your", weapon, "and damaging you! (-40 HP), (You lost the", weapon, ")")
         HP -= 40
 else:
         print("The Alchemist charges directly at you, piercing you with his syringe! Your lack of action causes it to kill you! (-100 HP)")
         HP -= 100
+time.sleep(3)
+print("You have", HP, "HP remaining!")
+action = "The Alchemist rises again, and slams his syringe onto the ground. He jumps on top of it. Looks like hes preparing to spin attack? Prepare!"
+a = " Try to interupt with your own attack! "
+b = " Try to dodge the incoming tornado! "
+c = " Try to parry! "
+d = " Try to block! "
+answer = input("{}\nA.{} B. {} C. {} D. {}".format(action, a, b, c, d)).lower()
